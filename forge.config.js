@@ -3,13 +3,14 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 
 module.exports = {
   packagerConfig: {
-    osxSign: {},
-    osxNotarize: {
-      tool: 'notarytool',
-      appleId: process.env.APPLE_ID,
-      appleIdPassword: process.env.APPLE_PASSWORD,
-      teamId: process.env.APPLE_TEAM_ID
-    },
+    // macOS 签名已禁用 - 如需 macOS 自动更新，需配置 Apple 开发者账号
+    // osxSign: {},
+    // osxNotarize: {
+    //   tool: 'notarytool',
+    //   appleId: process.env.APPLE_ID,
+    //   appleIdPassword: process.env.APPLE_PASSWORD,
+    //   teamId: process.env.APPLE_TEAM_ID
+    // },
     asar: true,
   },
   rebuildConfig: {},
@@ -30,6 +31,19 @@ module.exports = {
       name: '@electron-forge/maker-rpm',
       config: {},
     },
+  ],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'Liuyuhang610065',
+          name: 'my-electron-app'
+        },
+        prerelease: false,
+        draft: true
+      }
+    }
   ],
   plugins: [
     {
