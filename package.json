@@ -1,36 +1,35 @@
 {
   "name": "my-electron-app",
   "version": "1.0.0",
-  "description": "my first electron app",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron-forge start",
-    "dev": "NODE_ENV=development electron .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish"
-  },
+  "description": "Electron app with Vite, React, and TypeScript",
+  "main": "out/main/index.js",
   "author": "Liu yuhang",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Liuyuhang610065/my-electron-app"
   },
-  "devDependencies": {
-    "@electron-forge/cli": "^7.11.1",
-    "@electron-forge/maker-deb": "^7.11.1",
-    "@electron-forge/maker-rpm": "^7.11.1",
-    "@electron-forge/maker-squirrel": "^7.11.1",
-    "@electron-forge/maker-zip": "^7.11.1",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.11.1",
-    "@electron-forge/plugin-fuses": "^7.11.1",
-    "@electron-forge/publisher-github": "^7.11.1",
-    "@electron/fuses": "^1.8.0",
-    "electron": "^40.2.1"
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "package": "electron-builder",
+    "publish": "electron-builder --publish always"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1",
-    "update-electron-app": "^3.1.2"
+    "electron-updater": "^6.1.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1",
+    "electron": "^40.2.1",
+    "electron-builder": "^24.9.1",
+    "electron-vite": "^2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11"
   }
 }
