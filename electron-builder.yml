@@ -1,0 +1,29 @@
+appId: com.liuyuhang.myelectronapp
+productName: my-electron-app
+directories:
+  output: out
+  buildResources: resources
+files:
+  - out/main
+  - out/preload
+  - out/renderer
+  - package.json
+asarUnpack:
+  - resources/**
+publish:
+  provider: github
+  owner: Liuyuhang610065
+  repo: my-electron-app
+mac:
+  category: public.app-category.utilities
+  target:
+    - dmg
+    - zip
+win:
+  target:
+    - nsis
+    - zip
+linux:
+  target:
+    - AppImage
+    - deb
